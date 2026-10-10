@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClipViral - Generador de Shorts</title>
+<style>
+body{font-family:Arial,sans-serif;background:#101322;color:white;margin:0;padding:24px}
+main{max-width:600px;margin:auto}
+h1{color:#a78bfa}
+textarea,select,button{box-sizing:border-box;width:100%;padding:14px;margin:8px 0;border-radius:10px;font-size:16px}
+textarea,select{background:#20263a;color:white;border:1px solid #555}
+button{background:#8b5cf6;color:white;border:0;font-weight:bold}
+#resultado{white-space:pre-wrap;background:#20263a;padding:16px;border-radius:10px}
+</style>
+</head>
+<body>
+<main>
+<h1>🎬 ClipViral</h1>
+<p>Crea ideas para Shorts con psicología del poder.</p>
+<label>Personaje</label>
+<input id="personaje" placeholder="Ej. un líder" style="width:100%;padding:12px;box-sizing:border-box">
+<label>Conflicto</label>
+<textarea id="conflicto" placeholder="¿Qué problema enfrenta?"></textarea>
+<label>Relación</label>
+<textarea id="relacion" placeholder="¿Con quién tiene el conflicto?"></textarea>
+<label>Problema</label>
+<textarea id="problema" placeholder="¿Qué está en juego?"></textarea>
+<button onclick="crear()">Generar guion</button>
+<div id="resultado">Tu guion aparecerá aquí.</div>
+<button onclick="copiar()">Copiar guion</button>
+</main>
+<script>
+function crear(){
+const p=document.getElementById('personaje').value||'Un hombre poderoso';
+const c=document.getElementById('conflicto').value||'se enfrenta a una traición';
+const r=document.getElementById('relacion').value||'alguien en quien confiaba';
+const pr=document.getElementById('problema').value||'podría perderlo todo';
+document.getElementById('resultado').textContent=
+'PERSONAJE: '+p+'\n\nCONFLICTO: '+c+'\n\nRELACIÓN: '+r+'\n\nPROBLEMA: '+pr+'\n\nPREGUNTA: ¿Qué harías tú en su lugar?';
+}
+function copiar(){navigator.clipboard.writeText(document.getElementById('resultado').textContent).then(()=>alert('Guion copiado'));}
+</script>
+</body>
+</html>
